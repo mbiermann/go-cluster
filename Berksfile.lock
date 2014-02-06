@@ -1,0 +1,18 @@
+{
+  "sources": {
+    "apt": {
+      "locked_version": "2.3.4"
+    },
+    "golang": {
+      "locked_version": "1.2.0"
+    },
+    "chef-golang": {
+      "locked_version": "1.3.0",
+      "git": "git://github.com/NOX73/chef-golang.git",
+      "ref": "b062a3226a2ca1a14f0e62187a6ea870281988fc"
+    },
+    "go-cluster": {
+      "path": "./site-cookbooks/go-cluster"
+    }
+  }
+}
