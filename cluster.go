@@ -14,7 +14,7 @@ import(
 
 type ClusterConfig struct {
 	Hosts 						  	[]string
-	NodeReanimationAfterSeconds 	float64
+	NodeReanimationAfterSeconds 	int64
 }
 
 func(config *ClusterConfig) UnsupportedNodes(nodes []*Node) []*Node {
@@ -167,7 +167,7 @@ func(cluster *Cluster) UpdateWithConfig(config *ClusterConfig) {
 	cluster.Nodes = AddNodes(cluster.Nodes, config.SupportedNodesMissing(allNodes))
 	cluster.DeadPoolMutex.Unlock()
 	cluster.NodesMutex.Unlock()
-	cluster.NodeReanimationAfterSeconds = int64(config.NodeReanimationAfterSeconds)
+	cluster.NodeReanimationAfterSeconds = config.NodeReanimationAfterSeconds
 }
 
 func NewCluster(config *ClusterConfig) (cluster *Cluster, err error) {
