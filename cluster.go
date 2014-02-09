@@ -125,7 +125,7 @@ func(cluster *Cluster) Do(req *http.Request) (resp *http.Response, err error) {
 		return
 	}
 	cluster.NodesMutex.Lock()
-	rand.Seed(time.Now().Unix())
+	rand.Seed(time.Now().UnixNano())
     idx := rand.Intn(len(cluster.Nodes))
 	node := cluster.Nodes[idx]
 	cluster.NodesMutex.Unlock()
